@@ -16,7 +16,7 @@
 		   <skipTests>false</skipTests>
            <skipITs>${skipTests}</skipITs>
            <skipUTs>${skipTests}</skipUTs>
-		   	        <github.account>SeshagiriSriram</github.account>
+		   	        <github.account>SterlingTraining</github.account>
 
     </properties>
 	
