@@ -241,35 +241,25 @@
     <build>
         <plugins>
         <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.7</version>
-          <dependencies>
-           <dependency>
-            <groupId>net.sourceforge.cobertura</groupId>
-            <artifactId>cobertura-runtime</artifactId>
-            <version>2.1.1</version>
-            <type>pom</type>
-            <exclusions>
-             <exclusion>
-              <groupId>ch.qos.logback</groupId>
-              <artifactId>logback-classic</artifactId>
-             </exclusion>
-            </exclusions>  
-           </dependency>
-           <dependency>
-            <groupId>net.sourceforge.cobertura</groupId>
-            <artifactId>cobertura</artifactId>
-            <version>2.1.1</version>
-            <exclusions>
-             <exclusion>
-              <groupId>ch.qos.logback</groupId>
-              <artifactId>logback-classic</artifactId>
-             </exclusion>
-            </exclusions>  
-           </dependency>
-          </dependencies>
-         </plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.0</version>
+            <configuration>
+                <reportPlugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <version>2.7</version>
+                        <configuration>
+                            <formats>
+                                <format>html</format>
+                                <format>xml</format>
+                            </formats>
+                        </configuration>
+                    </plugin>
+                </reportPlugins>
+            </configuration>
+        </plugin>
 	    <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -663,17 +653,30 @@
             </build>
             <reporting>
                 <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>cobertura-maven-plugin</artifactId>
-                        <version>${cobertura.version}</version>
-                        <configuration>
-                            <formats>
-                                <format>html</format>
-                                <format>xml</format>
-                            </formats>
-                        </configuration>
-                    </plugin>
+                    <!-- Maven Project Info Reports Plugin -->
+			      <plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-project-info-reports-plugin</artifactId>
+			        <version>2.7</version>
+			        <configuration>
+			          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+			        </configuration>
+			      </plugin>
+			      <!-- Cobertura Code Coverage Plugin -->
+			      <plugin>
+			        <groupId>org.codehaus.mojo</groupId>
+			        <artifactId>cobertura-maven-plugin</artifactId>
+			        <version>2.7</version>
+			        <configuration>
+			          <instrumentation>
+			            <ignoreTrivial>true</ignoreTrivial>
+			          </instrumentation>
+			          <formats>
+			            <format>html</format>
+			            <format>xml</format>
+			          </formats>
+			        </configuration>
+			      </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
