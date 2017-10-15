@@ -16,7 +16,7 @@
 		   <skipTests>false</skipTests>
            <skipITs>${skipTests}</skipITs>
            <skipUTs>${skipTests}</skipUTs>
-		   	        <github.account>SterlingTraining</github.account>
+		   	        <github.account>hariom1512</github.account>
 
     </properties>
 	
@@ -34,7 +34,7 @@
 
 	</distributionManagement>
 	    <scm>
-        <connection>scm:git:git@github.com:${github.account}/addressbook.git</connection>
+        <connection>scm:git:git@github.com:${github.account}/hari.git</connection>
         <developerConnection>scm:git:git@github.com:${github.account}/addressbook.git</developerConnection>
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
       <!-- <tag>1.0.5</tag> --> 
